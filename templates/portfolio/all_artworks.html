@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+Tatarchik-Art | Мои работы
+{% endblock title %}
+
+{% block content %}
+
+<div class="art-works">
+    <div class="art-works__items container">
+        {% for artwork in artworks %}
+        <div class="art-works__item">
+            <h2>{{ artwork.title }}</h2>
+            <img src="{{ artwork.main_image.url }}" alt="Картинка {{ artwork.title }}">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

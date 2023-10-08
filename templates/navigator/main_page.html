@@ -1,0 +1,57 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+Tatarchik-Art | Главная страница
+{% endblock title %}
+
+{% block content %}
+    <div class="main">
+        <div class="header__main">
+            <div class="header__info">
+                <h1>Tatarchik-Art</h1>
+                <h2>Digital-иллюстратор</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, distinctio sapiente! Ipsum asperiores, magni eos fuga iusto culpa
+                    facilis quos voluptas est. Dolores dolor tempore expedita porro officia quaerat omnis!
+                </p>
+                <a href="/">Посмотреть портфолио</a>
+            </div>
+            <div class="header__img">
+                <img src="{% static 'images/TatarBlueYel.jpeg' %}" alt="main_img">
+            </div>
+        </div>
+    </div>
+    <div class="navigator">
+        <div class="navigator__image">
+            <img src="{% static 'images/family.jpg' %}" alt="family">
+        </div>
+        <div class="navigator__back"></div>
+        <div class="navigator__items">
+            <div class="navigator__item">
+                <div class="navigator__icon">
+
+                </div>
+                <div class="navigator__name">Наверх</div>
+            </div>
+            <div class="navigator__item">
+                <div class="navigator__icon">
+
+                </div>
+                <div class="navigator__name">Мои работы</div>
+            </div>
+            <div class="navigator__item">
+                <div class="navigator__icon">
+
+                </div>
+                <div class="navigator__name">Блог</div>
+            </div>
+            <div class="navigator__item">
+                <div class="navigator__icon">
+
+                </div>
+                <div class="navigator__name">Контакты</div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

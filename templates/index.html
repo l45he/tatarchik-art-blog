@@ -1,0 +1,38 @@
+<!doctype html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>{% block title %}{% endblock title %} </title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__nav">
+            <div class="header__cont container">
+                <div class="header__logo">
+                    <p>Логотип</p>
+                </div>
+                <div class="header__menu">
+                    <a href="{% url 'main_page' %}" class="{% if request.path == '/' %}active{% endif %}">Главная</a>
+                    <a href="{% url 'all_artworks' %}" class="{% if request.path == '/portfolio/' %}active{% endif %}">Мои работы</a>
+                    <a href="{% url 'blog_main' %}" class="{% if request.path == '/blog/' %}active{% endif %}">Блог</a>
+                    <a href="{% url 'contacts' %}" class="{% if request.path == '/contacts/' %}active{% endif %}">Контакты</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="background">
+        {% block content %}
+        {% endblock content %}
+    </div>  
+    <footer>
+        <div class="container">
+            <div class="footer__rights">(C) Все права защищены</div>
+            <div class="footer__info">Tatarchik-Art</div>
+        </div>
+    </footer>
+</body>
+</html>
