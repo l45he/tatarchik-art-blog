@@ -14,9 +14,7 @@ class AllArtworksView(ListView):
     ordering = ['-id'] #указываем по какому полю производить сортировку (id, slug, title, desc, image -
     # поля нашей модели). Минус означает сортирову в обратном порядке
 
-    # def get_context_data(self, *, object_list=None, **kwargs): #создаем объект контекста
-    #     context = super(AllArtworks, self).get_context_data(**kwargs) #обращаемся через метод super() к родительскому классу
-    #     artwork = Artworks.objects.filter(slug=self.kwargs['slug']).first()
-    #
-    #     context['title'] = Artworks.objects.filter(title=course).order_by('number')
-    #     return context
+    def get_context_data(self, *, object_list=None, **kwargs): #создаем объект контекста
+        context = super(AllArtworksView, self).get_context_data(**kwargs) #обращаемся через метод super() к родительскому классу
+        context['title'] = 'Tatarchik-Art | Мои работы'
+        return context

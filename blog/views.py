@@ -11,3 +11,8 @@ class PostsView(ListView):
     template_name = 'blog/all_posts.html' #указываем html-шаблон, который будет использоваться
     context_object_name = 'posts' #по какому названию сможем обращаться к данным, которые будут переданы внутрь шаблона
     ordering = ['-publication_date']
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(PostsView, self).get_context_data(**kwargs)
+        context['title'] = 'Tatarchik-Art | Блог'
+        return context

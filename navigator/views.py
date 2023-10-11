@@ -5,7 +5,13 @@ from django.template import loader
 # Create your views here.
 
 def index(request):
-    return render(request, 'navigator/main_page.html')
+    context = {
+        'title': 'Tatarchik-Art | Главная страница'
+    }
+    return render(request, 'navigator/main_page.html', context)
 
 def contacts(request):
-    return render(request, 'navigator/contacts.html')
+    context = {
+        'title': 'Tatarchik-Art | Контакты'
+    }
+    return render(request, 'navigator/contacts.html', context)
