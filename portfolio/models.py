@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+
 
 # Create your models here.
 class Artworks(models.Model):
@@ -18,6 +20,9 @@ class Artworks(models.Model):
     class Meta:
         verbose_name = 'проект'
         verbose_name_plural = 'Мои проекты'
+
+    def get_absolute_url(self):
+        return reverse('one_artwork', kwargs={'slug': self.slug})
 
 
 class Images(models.Model):

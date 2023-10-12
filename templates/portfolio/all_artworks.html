@@ -13,6 +13,7 @@
         <div class="art-works__item">
             <h2>{{ artwork.title }}</h2>
             <img src="{{ artwork.main_image.url }}" alt="Картинка {{ artwork.title }}">
+            <a class="link" href="{{ artwork.get_absolute_url }}"></a>
         </div>
         {% endfor %}
     </div>

@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from .models import Artworks, Images
 
@@ -21,13 +22,14 @@ class AllArtworksView(ListView):
 
 
 class ArtworkView(DetailView):
-    model = Images
+    model = Artworks
     template_name = 'portfolio/one_artwork.html'
-    context_object_name = 'artwork'
     ordering = ['-id']
 
     def get_context_data(self, object_list=None, **kwargs):
-        name =
+        artwork_name = Artworks.objects.filter(slug=self.kwargs['slug']).first()
+        artwork_set = Images.objects.filter(artwork__slug=self.kwargs['slug'])
         context = super(ArtworkView, self).get_context_data(**kwargs)
-        context['title'] = 'Tatarchik-Art | Мои работы'
-
+        context['title'] = f'Tatarchik-Art | {artwork_name}'
+        context['artwork_set'] = artwork_set
+        return context
