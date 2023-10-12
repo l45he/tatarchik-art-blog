@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Artworks(models.Model):
+    slug = models.SlugField('Уникальное название', unique=True)
     title = models.CharField('Название проекта', max_length=100)
     main_image = models.ImageField('Основное изображение', upload_to='images')
 

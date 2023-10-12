@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView
-from .models import Artworks
+from django.views.generic import ListView, DetailView
+from .models import Artworks, Images
 
 
 # Create your views here.
@@ -18,3 +18,16 @@ class AllArtworksView(ListView):
         context = super(AllArtworksView, self).get_context_data(**kwargs) #обращаемся через метод super() к родительскому классу
         context['title'] = 'Tatarchik-Art | Мои работы'
         return context
+
+
+class ArtworkView(DetailView):
+    model = Images
+    template_name = 'portfolio/one_artwork.html'
+    context_object_name = 'artwork'
+    ordering = ['-id']
+
+    def get_context_data(self, object_list=None, **kwargs):
+        name =
+        context = super(ArtworkView, self).get_context_data(**kwargs)
+        context['title'] = 'Tatarchik-Art | Мои работы'
+
