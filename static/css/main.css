@@ -188,6 +188,16 @@ body {
     border-radius: 15px;
 }
 
+.the-artwork__list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.the-artwork__image {
+    display: block;
+    width: 30%;
+}
+
 .blog {
     padding-top: 50px;
 }

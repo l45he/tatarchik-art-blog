@@ -1,15 +1,20 @@
 from django.db import models
 from django.urls import reverse
+from transliterate import slugify
 
 
 # Create your models here.
 class Artworks(models.Model):
-    slug = models.SlugField('Уникальное название', unique=True)
     title = models.CharField('Название проекта', max_length=100)
+    slug = models.SlugField('Уникальное название', unique=True, blank=True)
     main_image = models.ImageField('Основное изображение', upload_to='images')
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Artworks, self).save(*args, **kwargs)
 
     #отображение картинок в админ панели
     # def image_display(self):

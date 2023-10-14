@@ -6,10 +6,11 @@
 {% endblock title %}
 
 {% block content %}
-<p>
-    {% for artwork in artwork_set %}
-    <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}">
-    {% endfor %}
-
-</p>
+<div class="the-artwork">
+    <div class="the-artwork__list container">
+        {% for artwork in artwork_set %}
+        <img class="the-artwork__image" src="{{ artwork.image.url }}" alt="{{ artwork.title }}">
+        {% endfor %}
+    </div>
+</div>
 {% endblock content %}
